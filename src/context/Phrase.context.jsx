@@ -55,6 +55,7 @@ export const PhraseProvider = ({children}) => {
     dispatch({type: "SUBMIT_START"})
     try{
       const res = await axios.get(`${API}/pumphrase`)
+      console.log("Fetched phrases:", res.data)
       dispatch({type: "FETCH_SUCCESS", payload: res.data})
     } catch(err) {
       dispatch({type: "FETCH_ERROR", payload: err.response?.data?.error || "failed to fetch data"})
